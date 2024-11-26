@@ -5,14 +5,16 @@
 struct key_value {
         char*           key;
         char*           value;
+        /* 
         int             key_len;
-        int             value_len;
+        int             value_len; */
 };
 
 struct heap_control 
 {
         int                     heap_size;
-        struct key_value*       freeptr;
+        int                     curarr;
+        struct key_value*       keyvalptr;
 };
 
 void mkkeyvalue_heap(int initial_size, struct heap_control *ptr);
