@@ -10,6 +10,16 @@ static void append_dictionary(struct heap_control *heap_ctx)
                 "takes two arguments minimal and maximal parameters count."
                 );
         
+        add_record2_heap(heap_ctx, "Z_PARAM_VARIADIC", 
+                "Z_PARAM_VARIADIC(dest, ptr, num)\n" \
+                "dest:\n" \
+                "- '+' for zero or more parameters\n" \
+                "- '*' for one or more parameters\n" \
+                "\n\n" \
+                "ptr: ptr of zval*\n" \
+                "num: a pointer of uint32" 
+                
+        );
 }
 
 static int _main(char* strname)
@@ -26,7 +36,7 @@ static int _main(char* strname)
                         found = 1;
 
                         printf("%s\n\n", strname);
-
+                        printf("-------\n");
                         printf("%s\n", heap_ctx.keyvalptr[i].value);
                 } 
         }
