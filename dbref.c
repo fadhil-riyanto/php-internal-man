@@ -23,6 +23,11 @@ int mkkeyvalue_heap(int initial_size, struct heap_control *ptr)
 
 void clear_heap(struct heap_control* ptr)
 {
+        for(int i = 0; i < ptr->heap_size; i++) {
+                free(ptr->keyvalptr[i].key);
+                free(ptr->keyvalptr[i].value);
+                
+        }
         free(ptr->keyvalptr);
 }
 

@@ -11,7 +11,7 @@ static int _main(char* strname)
         add_record2_heap(&heap_ctx, "abc", "def");
         add_record2_heap(&heap_ctx, "abcd", "ddef");
         
-
+        clear_heap(&heap_ctx);
 }
 
 int main(int argc, char** argv)
