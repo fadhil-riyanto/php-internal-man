@@ -1,15 +1,19 @@
-CFLAGS = -ggdb3 -O0
+CFLAGS = -g
 
-phpman: phpman.o dbref.o 
-	gcc phpman.o dbref.o -o phpman
+phpman: phpman.o dbref.o log.o
+	gcc phpman.o dbref.o log.o -o phpman ${CFLAGS}
 
 phpman.o: phpman.c
-	gcc phpman.c -o phpman.o -c $(CFLAGc)
+	gcc phpman.c -o phpman.o -c $(CFLAGS)
 
 dbref.o: dbref.c
 	gcc dbref.c -o dbref.o -c $(CFLAGS)
+
+log.o: modules/log.c-patched/src/log.c
+	gcc modules/log.c-patched/src/log.c -o log.o -c $(CFLAGS)
 
 clean:
 	rm phpman.o
 	rm phpman 
 	rm dbref.o 
+	rm log.o
