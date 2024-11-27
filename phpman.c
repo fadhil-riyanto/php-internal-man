@@ -8,7 +8,6 @@ static void append_dictionary(struct heap_control *heap_ctx)
 {
         append_fn_section(heap_ctx);
         append_macro_section(heap_ctx);
-        append_exception_section(heap_ctx);
 }
 
 static int _main(char* strname)
@@ -24,9 +23,21 @@ static int _main(char* strname)
                 if (strcmp(heap_ctx.keyvalptr[i].key, strname) == 0 && found == 0) {
                         found = 1;
 
-                        printf("%s\n\n", strname);
-                        printf("-------\n");
-                        printf("%s\n", heap_ctx.keyvalptr[i].value->param);
+                        printf("\e[1mSYNOPSIS\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->synopsis);
+
+                        printf("\e[1mPARAMETERS\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->param);
+
+                        printf("\e[1mPARAMETERS DESC\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->param_desc);
+
+                        printf("\e[1mDESCRIPTION\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->desc);
+
+                        printf("\e[1mRETURN VALUE\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->return_value);
+
+                        printf("\e[1mREFERENCE\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->reference);
+                        
+                        printf("\e[1mEXAMPLES\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->examples);
+
+                        printf("\e[1mSEE ALSO\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->examples);
                 } 
         }
 

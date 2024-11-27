@@ -26,6 +26,5 @@ int add_record2_heap(struct heap_control* ptr, char* key, struct value_data* val
 /* defined in docs/func.c */
 void append_fn_section(struct heap_control *ptr);
 void append_macro_section(struct heap_control *ptr);
-void append_exception_section(struct heap_control *ptr);
 
 #endif
