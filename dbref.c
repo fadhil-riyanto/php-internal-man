@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "docs/base.h"
 
 int mkkeyvalue_heap(int initial_size, struct heap_control *ptr)
 {
@@ -27,14 +28,14 @@ void clear_heap(struct heap_control* ptr)
 
                 if (ptr->heap_size != 1) {
                         free(ptr->keyvalptr[i].key);
-                        free(ptr->keyvalptr[i].value);
+                        // free(ptr->keyvalptr[i].value);
                 }
                 
         }
         free(ptr->keyvalptr);
 }
 
-int add_record2_heap(struct heap_control* ptr, char* key, char* value)
+int add_record2_heap(struct heap_control* ptr, char* key, struct value_data* value)
 {
         
         void *tmp = realloc(
@@ -50,8 +51,13 @@ int add_record2_heap(struct heap_control* ptr, char* key, char* value)
                 // ptr->keyvalptr[ptr->curarr].key = (char*)malloc(strlen(key) + 1);
                 // ptr->keyvalptr[ptr->curarr].value = (char*)malloc(strlen(value) + 1);
 
-                (ptr->keyvalptr + ptr->curarr)->key = strdup(key);
-                (ptr->keyvalptr + ptr->curarr)->value = strdup(value);
+                ptr->keyvalptr[ptr->curarr].key = strdup(key);
+                
+
+                /* copy memory to the heap */
+                ptr->keyvalptr[ptr->curarr].value = value;
+                // (ptr->keyvalptr + ptr->curarr)->value = strdup(value);
+
 
                 ptr->curarr = ptr->curarr + 1;
                 return 0;
