@@ -29,7 +29,33 @@ struct value_data func_efree = {
         .see_also = "emalloc(size_t)"
 };
 
-inline void append_fn_section(struct heap_control *ptr)
+struct value_data fn_zend_argument_type_error = {
+        .synopsis = "throw TypeError class",
+        .param = NULL,
+        .param_desc = NULL,
+        .desc = NULL,
+        .return_value = NULL,
+        .reference = "https://www.php.net/manual/en/class.typeerror.php",
+        .examples = NULL,
+        .see_also = NULL
+};
+
+
+struct value_data fn_zend_zval_value_name = {
+        .synopsis = "return the type of zval, whatever string, int, float, etc",
+        .param = "zend_zval_value_name(src);",
+        .param_desc = "src of zval*",
+        .desc = NULL,
+        .return_value = NULL,
+        .reference = NULL,
+        .examples = NULL,
+        .see_also = NULL
+};
+
+void append_fn_section(struct heap_control *ptr)
 {
         add_record2_heap(ptr, "efree", &func_efree);
+        add_record2_heap(ptr, "zend_argument_type_error", &fn_zend_argument_type_error);
+        add_record2_heap(ptr, "zend_zval_value_name", &fn_zend_zval_value_name);
+        
 }
