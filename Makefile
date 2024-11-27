@@ -1,7 +1,7 @@
 CFLAGS = -g
 
-phpman: phpman.o dbref.o log.o docs_func.o
-	gcc phpman.o dbref.o log.o docs_func.o -o phpman ${CFLAGS}
+phpman: phpman.o dbref.o log.o docs_func.o docs_macro.o docs_exception.o
+	gcc phpman.o dbref.o log.o docs_func.o docs_macro.o docs_exception.o -o phpman ${CFLAGS}
 
 phpman.o: phpman.c
 	gcc phpman.c -o phpman.o -c $(CFLAGS)
@@ -16,12 +16,20 @@ log.o: modules/log.c-patched/src/log.c
 docs_func.o: ./docs/func.c 
 	gcc ./docs/func.c -o docs_func.o -c $(CFLAGS)
 
+docs_macro.o: ./docs/macro.c 
+	gcc ./docs/macro.c -o docs_macro.o -c $(CFLAGS)
+
+docs_exception.o: ./docs/exception.c 
+	gcc ./docs/exception.c -o docs_exception.o -c $(CFLAGS)
+
 clean:
-	rm phpman.o
-	rm phpman 
+	rm phpman.o 
 	rm dbref.o 
 	rm log.o
 	rm docs_func.o
+	rm docs_macro.o
+	rm docs_exception.o
+	rm phpman
 
 install: 
 	sudo cp ./phpman /usr/bin/phpman
