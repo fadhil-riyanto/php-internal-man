@@ -17,3 +17,9 @@ clean:
 	rm phpman 
 	rm dbref.o 
 	rm log.o
+
+install: 
+	sudo cp ./phpman /usr/bin/phpman
+
+uninst:
+	sudo rm /usr/bin/phpman
