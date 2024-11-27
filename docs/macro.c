@@ -45,12 +45,12 @@ struct value_data mc_ZVAL_STR_COPY = {
         .param = NULL,
         .param_desc = NULL,
         .desc = NULL,
-        .return_value = NULL,
+        .return_value = "void",
         .reference = "https://www.phpinternalsbook.com/php7/zvals/memory_management.html",
         .examples = "zval val;\n" \
-                        "ZVAL_STR_COPY(&val, zstr); // Refcount will be incremented.\n" \
-                        "// More efficient/compact version of:\n" \
-                        "ZVAL_STR(&val, zend_string_copy(zstr));\n",
+                        "\tZVAL_STR_COPY(&val, zstr); // Refcount will be incremented.\n" \
+                        "\t// More efficient/compact version of:\n" \
+                        "\tZVAL_STR(&val, zend_string_copy(zstr));\n",
         .see_also = NULL
 };
 
