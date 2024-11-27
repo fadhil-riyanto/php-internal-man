@@ -42,15 +42,14 @@ static void append_dictionary(struct heap_control *heap_ctx)
         );
 
         add_record2_heap(heap_ctx, "ZVAL_STR_COPY", 
-                "ZVAL_STR_COPY: the ZVAL_STR_COPY macro is a combination of " \
-                "ZVAL_STR and zend_string_copy, where the latter increments the refcount of the string."\
-                "\n\n"\
-
-                "example: \n" \
-                "zval val;\n" \
-                "ZVAL_STR_COPY(&val, zstr); // Refcount will be incremented.\n"
-                "// More efficient/compact version of:\n"
-                "ZVAL_STR(&val, zend_string_copy(zstr));"
+                                "ZVAL_STR_COPY: the ZVAL_STR_COPY macro is a combination of ZVAL_STR and zend_string_copy, where the latter increments the refcount of the string.\n" \
+                                "\n" \
+                                "example: \n" \
+                                "zval val;\n" \
+                                "ZVAL_STR_COPY(&val, zstr); // Refcount will be incremented.\n" \
+                                "// More efficient/compact version of:\n" \
+                                "ZVAL_STR(&val, zend_string_copy(zstr));\n" \
+                                "\n" \
         );
 
         /* ===========
