@@ -7,6 +7,8 @@
 static void append_dictionary(struct heap_control *heap_ctx)
 {
         append_fn_section(heap_ctx);
+        append_macro_section(heap_ctx);
+        append_exception_section(heap_ctx);
 }
 
 static int _main(char* strname)
