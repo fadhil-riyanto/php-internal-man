@@ -37,7 +37,7 @@ static int _main(char* strname)
                         
                         printf("\e[1mEXAMPLES\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->examples);
 
-                        printf("\e[1mSEE ALSO\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->examples);
+                        printf("\e[1mSEE ALSO\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->see_also);
                 } 
         }
 
