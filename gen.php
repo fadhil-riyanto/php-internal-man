@@ -5,10 +5,13 @@ $arr = explode("\n", $input_data);
 
 $first = 1;
 foreach($arr as $i) {
+        
+        $replaced = addslashes($i);
+
         if ($first == 1) {
-                echo "\"" . $i . "\\n\" \\" . PHP_EOL;
+                echo "\"" . $replaced . "\\n\" \\" . PHP_EOL;
         } else {
-                echo "                        \"\\t" . $i . "\\n\" \\" . PHP_EOL;
+                echo "                        \"\\t" . $replaced . "\\n\" \\" . PHP_EOL;
         }
         
 
