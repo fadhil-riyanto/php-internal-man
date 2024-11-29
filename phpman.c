@@ -20,7 +20,10 @@ static int _main(char* strname)
         append_dictionary(&heap_ctx);
 
         for(int i = 0; i < heap_ctx.heap_size - 1; i++) {
-                if (strcmp(heap_ctx.keyvalptr[i].key, strname) == 0 && found == 0) {
+                if (strcmp("--all", strname) == 0) {
+                        found = 1;
+                        printf("- %s\n", heap_ctx.keyvalptr[i].key);
+                } else if (strcmp(heap_ctx.keyvalptr[i].key, strname) == 0 && found == 0) {
                         found = 1;
 
                         printf("\e[1mSYNOPSIS\e[m\n\t%s\n\n", heap_ctx.keyvalptr[i].value->synopsis);
