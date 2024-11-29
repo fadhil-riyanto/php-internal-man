@@ -52,10 +52,22 @@ struct value_data fn_zend_zval_value_name = {
         .see_also = NULL
 };
 
+struct value_data fn_zend_argument_count_error = {
+        .synopsis = "throw ArgumentCountError related class, example: variadic function",
+        .param = "zend_argument_count_error(fmt, ...);",
+        .param_desc = NULL,
+        .desc = NULL,
+        .return_value = NULL,
+        .reference = "https://github.com/php/php-src/blob/2473f57ba7c0ceeb6c08dfe335995925d0497028/ext/standard/formatted_print.c#L719C4-L719C29",
+        .examples = NULL,
+        .see_also = NULL
+};
+
 void append_fn_section(struct heap_control *ptr)
 {
         add_record2_heap(ptr, "efree", &func_efree);
         add_record2_heap(ptr, "zend_argument_type_error", &fn_zend_argument_type_error);
         add_record2_heap(ptr, "zend_zval_value_name", &fn_zend_zval_value_name);
+        add_record2_heap(ptr, "zend_argument_count_error", &fn_zend_argument_count_error);
         
 }
